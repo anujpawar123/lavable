@@ -1,0 +1,37 @@
+.hero-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  background-color: #3f87fb; /* Base background color */
+}
+
+.gradient-layer {
+  position: absolute;
+  /* Make the layer larger than the viewport so we can move it around seamlessly */
+  top: -25vh;
+  left: -25vw;
+  width: 150vw;
+  height: 150vh;
+  
+  /* User provided gradient */
+  background: radial-gradient(circle, rgba(63, 135, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+  
+  /* Hardware accelerated smooth animation */
+  animation: floatGradient 12s ease-in-out infinite alternate;
+}
+
+@keyframes floatGradient {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(8vw, 8vh) scale(1.1);
+  }
+  100% {
+    transform: translate(-5vw, 12vh) scale(1.05);
+  }
+}
